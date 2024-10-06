@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  #stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .star {
+    position: absolute;
+    background-color: #fff;
+    width: 2px;
+    height: 2px;
+    animation: move-stars 5s linear infinite;
+  }
+  
+  @keyframes move-stars {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100vh);
+    }
+  }
+  
+  header {
+    background-color: rgba(17, 17, 17, 0.8);
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #ffa500;
+  }
+  
+  main {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .main-title {
+    text-align: center;
+    padding: 80px 20px;
+    background: url("space-bg.jpg") no-repeat center center/cover;
+    font-size: 3em;
+    line-height: 1.2;
+  }
+  
+  .explore-universe,
+  .discover-universe,
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .discover-universe .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .discover-universe .buttons button {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #ffa500;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .discover-universe .buttons button:hover {
+    transform: scale(1.1);
+  }
+  
+  footer {
+    padding: 20px;
+    background-color: rgba(17, 17, 17, 0.8);
+  }
+  
+  button {
+    background-color: #1e1e1e; /* Dark background for the button */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    padding: 10px 15url(c:/Users/quark/Downloads/List.html)px; /* Padding to increase size */
+    border-radius: 50px; /* Make the button round */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin-bottom: 10px;
+}
+
+  /* Hover effect for buttons */
+  button:hover {
+      background-color: #333; /* Change color on hover */
+  }
+
+
+
+  #preview-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    opacity: 0;
+  }
+  
+  #preview-modal.active {
+    width: 90%;
+    height: 90%;
+    opacity: 1;
+  }
+  
+  #preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  #modal-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 101;
+  }
+  
+  #modal-controls button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #ffa500;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  #modal-controls button:hover {
+    transform: scale(1.1);
+  }
+  
+  #preview-modal.maximized {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  
+  /* Animation for expanding the preview modal */
+  @keyframes expandModal {
+    from {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      width: 95%;
+      height: 95%;
+      opacity: 1;
+    }
+  }

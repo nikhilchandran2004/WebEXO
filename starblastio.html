@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Clicker 2</title>
+    <style>
+        /* Ensure the page and iframe take full width and height */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000; /* Optional: black background */
+        }
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            border: none; /* Remove iframe border */
+        }
+        .error-message {
+            color: white;
+            text-align: center;
+            font-size: 1.5em;
+            padding-top: 20%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fallback message if the iframe doesn't load -->
+    <div class="error-message" id="error-message">
+        Connection issue detected. Reloading the game...
+    </div>
+
+    <!-- Embed the game with an iframe -->
+    <iframe id="game-frame" 
+        src="https://www.crazygames.com/embed/starblastio" 
+        allow="gamepad *" 
+        style="width: 100%; height: 100%;" 
+        frameborder="0"
+        onload="hideErrorMessage()" 
+        onerror="showErrorMessage()">
+    </iframe>
+
+    <script>
+        function showErrorMessage() {
+            document.getElementById('game-frame').style.display = 'none';
+            document.getElementById('error-message').style.display = 'block';
+            // Optional: Try to reload after an error (e.g., 5 seconds delay)
+            setTimeout(function() {
+                location.reload();
+            }, 5000);
+        }
+
+        function hideErrorMessage() {
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('game-frame').style.display = 'block';
+        }
+
+        // You can also attempt to simulate an offline state if error persists
+        setTimeout(function() {
+            // If still showing error after 10 seconds, reload
+            if (document.getElementById('game-frame').style.display === 'none') {
+                location.reload();
+            }
+        }, 10000);
+    </script>
+
+</body>
+</html>

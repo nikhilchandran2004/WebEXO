@@ -1,0 +1,130 @@
+{
+    "questions": [
+      {
+        "question": "What is an exoplanet?",
+        "choices": [
+          { "text": "A planet outside our solar system", "isCorrect": true },
+          { "text": "A moon of Jupiter", "isCorrect": false },
+          { "text": "A star similar to the Sun", "isCorrect": false },
+          { "text": "An asteroid belt", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which method is commonly used to discover exoplanets?",
+        "choices": [
+          { "text": "Direct imaging", "isCorrect": false },
+          { "text": "Transit method", "isCorrect": true },
+          { "text": "Gravitational lensing", "isCorrect": false },
+          { "text": "Spectroscopy", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the name of the first confirmed exoplanet around a Sun-like star?",
+        "choices": [
+          { "text": "51 Pegasi b", "isCorrect": true },
+          { "text": "HD 209458 b", "isCorrect": false },
+          { "text": "TRAPPIST-1 d", "isCorrect": false },
+          { "text": "Kepler-186f", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which of the following is a characteristic of a super-Earth?",
+        "choices": [
+          { "text": "A planet larger than Earth but smaller than Neptune", "isCorrect": true },
+          { "text": "A planet that is similar in size to Jupiter", "isCorrect": false },
+          { "text": "A gas giant", "isCorrect": false },
+          { "text": "A planet with no atmosphere", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What does the term 'Goldilocks Zone' refer to?",
+        "choices": [
+          { "text": "The habitable zone around a star", "isCorrect": true },
+          { "text": "A type of star", "isCorrect": false },
+          { "text": "An asteroid belt", "isCorrect": false },
+          { "text": "A planet's core", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which telescope has discovered the most exoplanets?",
+        "choices": [
+          { "text": "Hubble Space Telescope", "isCorrect": false },
+          { "text": "Kepler Space Telescope", "isCorrect": true },
+          { "text": "James Webb Space Telescope", "isCorrect": false },
+          { "text": "Chandra X-ray Observatory", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is a 'hot Jupiter'?",
+        "choices": [
+          { "text": "A gas giant located close to its star", "isCorrect": true },
+          { "text": "A planet with high surface temperatures", "isCorrect": false },
+          { "text": "A type of comet", "isCorrect": false },
+          { "text": "A planet with rings", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What does the term 'atmospheric escape' refer to?",
+        "choices": [
+          { "text": "The process of a planet losing its atmosphere", "isCorrect": true },
+          { "text": "The transfer of gases between planets", "isCorrect": false },
+          { "text": "The creation of an atmosphere", "isCorrect": false },
+          { "text": "A type of solar wind", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which of the following is a characteristic of potentially habitable exoplanets?",
+        "choices": [
+          { "text": "Liquid water on the surface", "isCorrect": true },
+          { "text": "A strong magnetic field", "isCorrect": false },
+          { "text": "A thick atmosphere of hydrogen", "isCorrect": false },
+          { "text": "Extreme temperatures", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the purpose of the TESS mission?",
+        "choices": [
+          { "text": "To find and study exoplanets", "isCorrect": true },
+          { "text": "To observe distant galaxies", "isCorrect": false },
+          { "text": "To measure cosmic microwave background radiation", "isCorrect": false },
+          { "text": "To explore asteroids in our solar system", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the main component of an exoplanet's atmosphere that could indicate life?",
+        "choices": [
+          { "text": "Nitrogen", "isCorrect": false },
+          { "text": "Oxygen", "isCorrect": true },
+          { "text": "Carbon Dioxide", "isCorrect": false },
+          { "text": "Methane", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which exoplanet is known for its unusual orbit that brings it close to its star?",
+        "choices": [
+          { "text": "Proxima Centauri b", "isCorrect": false },
+          { "text": "HD 189733 b", "isCorrect": true },
+          { "text": "Kepler-22b", "isCorrect": false },
+          { "text": "TRAPPIST-1 e", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the significance of the habitable zone?",
+        "choices": [
+          { "text": "It indicates where liquid water can exist", "isCorrect": true },
+          { "text": "It determines a planet's mass", "isCorrect": false },
+          { "text": "It is where planets form", "isCorrect": false },
+          { "text": "It refers to the inner core of a planet", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which of the following planets has been studied for potential signs of life?",
+        "choices": [
+          { "text": "Mars", "isCorrect": true },
+          { "text": "Venus", "isCorrect": false },
+          { "text": "Mercury", "isCorrect": false },
+          { "text": "Neptune", "isCorrect": false }
+        ]
+      }
+    ]
+  }

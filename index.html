@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Explore The Outer Space</title>
+</head>
+<body>
+    <div id="stars"></div>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" style="width: 50px; height: auto;">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://gravitysimulator.org/exoplanets">Gravity</a></li>
+                    <li><a href="https://science.nasa.gov/exoplanets/">Explore</a></li>
+                    <li><a href="https://exoplanets.nasa.gov/alien-worlds/historic-timeline/">Timeline</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main-title">
+        <h1>Explore <br> THE OUTER SPACE</h1>
+    </section>
+
+    <section class="discover-universe">
+        <h2>DISCOVER THE UNIVERSE</h2>
+        <div class="buttons">
+            <button data-preview="exolist.html">EXOPLANETS</button>
+            <button data-preview="page1.html">EARTH-Proxima</button>
+            <button data-preview="universe.html">UNIVERSE</button>
+            <button data-preview="quiz.html">QUIZ</button>
+            <button data-preview="games.html">Games</button>
+        </div>
+    </section>
+
+    <!-- Fullscreen preview iframe with controls -->
+    <div id="preview-modal" class="hidden">
+        <button id="close-preview">✖</button>
+        <button id="maximize-preview">⤢</button>
+        <iframe id="preview-frame"></iframe>
+    </div>
+
+    <footer>
+        <h2>Contact Us</h2>
+        <p>For inquiries, email us at contact@outerspace.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

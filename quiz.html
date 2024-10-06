@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Exoplanet Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #0d0d2b 30%, #000); /* Dark cosmic background */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Stardust animation */
+        #stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: sparkle linear infinite;
+            will-change: transform; /* Improves performance */
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1) translateY(0); opacity: 0.5; }
+            50% { transform: scale(1.5) translateY(-5px); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 0.5; }
+        }
+
+        h1 {
+            color: #ffcc00; /* Glowing golden */
+            font-size: 42px;
+            margin-bottom: 20px;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 20px #ffcc00; }
+            100% { text-shadow: 0 0 50px #ffcc00; }
+        }
+
+        .quiz-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+            background-color: rgba(30, 30, 60, 0.85); /* Dark semi-transparent background */
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .question-text {
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .answer-option {
+            display: block;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #708eb9;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            color: #ffdd99;
+            position: relative; /* Added for animation positioning */
+            overflow: hidden; /* Prevents overflowing content */
+        }
+
+        .correct-answer {
+            background-color: #28a745; /* Green */
+            animation: bounce 0.6s forwards, fadeIn 0.6s forwards; /* Added animations */
+        }
+
+        .wrong-answer {
+            background-color: #dc3545; /* Red */
+            animation: bounce 0.6s forwards, fadeIn 0.6s forwards; /* Added animations */
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); } /* Slightly increase size */
+            100% { transform: scale(1); }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 28px;
+            font-size: 18px;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background-color: #ff3300;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Final score styling */
+        #final-score-box {
+            padding: 40px;
+            background-color: rgba(10, 10, 40, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Added scale for final score box */
+        }
+
+        #final-score-box h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        #final-score-box p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div> <!-- Stardust background -->
+
+    <h1>Cosmic Exoplanet Quiz</h1>
+    
+    <div class="quiz-box">
+        <div id="question-counter"></div>
+        <div id="question-content"></div>
+        <div id="feedback"></div>
+        <button id="continue-btn" class="hidden" onclick="showNextQuestion()">Next</button>
+    </div>
+
+    <div id="final-score-box" class="hidden">
+        <h2>Well Done, Space Explorer!</h2>
+        <p id="total-score"></p>
+        <p id="score-message"></p>
+    </div>
+
+    <script>
+        // Load quiz questions from a JSON file
+        const cosmicQuestions = [];
+
+        fetch('questions.json')
+            .then(response => response.json())
+            .then(data => {
+                cosmicQuestions.push(...data.questions);
+                displayQuestion();
+            })
+            .catch(error => console.error('Error loading quiz questions:', error));
+
+        let currentQuizIndex = 0;
+        let currentScore = 0;
+
+        function displayQuestion() {
+            const questionContent = document.getElementById('question-content');
+            const currentQuizData = cosmicQuestions[currentQuizIndex];
+            document.getElementById('question-counter').innerText = `Question ${currentQuizIndex + 1} of ${cosmicQuestions.length}`;
+            
+            questionContent.innerHTML = `
+                <div class="question-text">${currentQuizData.question}</div>
+                ${currentQuizData.choices.map((choice, i) => `
+                    <div class="answer-option" onclick="chooseAnswer(${i})">${choice.text}</div>
+                `).join('')}
+            `;
+
+            document.getElementById('feedback').innerText = '';
+            document.getElementById('continue-btn').classList.add('hidden');
+        }
+
+        function chooseAnswer(index) {
+            const currentQuizData = cosmicQuestions[currentQuizIndex];
+            const selectedChoice = currentQuizData.choices[index];
+            const answerOptions = document.querySelectorAll('.answer-option');
+
+            answerOptions.forEach((option, i) => {
+                option.classList.remove('correct-answer', 'wrong-answer');
+                option.style.pointerEvents = 'none'; // Disable click for all options
+                if (i === index) {
+                    option.classList.add(selectedChoice.isCorrect ? 'correct-answer' : 'wrong-answer');
+                }
+            });
+
+            const feedback = document.getElementById('feedback');
+            feedback.style.opacity = 0; // Start invisible
+            feedback.innerText = selectedChoice.isCorrect ? "Correct!" : "Incorrect!";
+            
+            setTimeout(() => {
+                feedback.style.opacity = 1; // Fade in
+                feedback.style.transition = 'opacity 0.5s ease'; // Smooth transition
+
+                // Show correct answer if selected was wrong
+                if (!selectedChoice.isCorrect) {
+                    answerOptions.forEach((option, i) => {
+                        if (currentQuizData.choices[i].isCorrect) {
+                            option.classList.add('correct-answer'); // Show correct answer
+                        }
+                    });
+                }
+
+                // Update the score
+                if (selectedChoice.isCorrect) currentScore++;
+                document.getElementById('continue-btn').classList.remove('hidden');
+            }, 300);
+        }
+
+        function showNextQuestion() {
+            currentQuizIndex++;
+            if (currentQuizIndex < cosmicQuestions.length) {
+                displayQuestion();
+            } else {
+                displayFinalScore();
+            }
+        }
+
+        function displayFinalScore() {
+            const quizBox = document.querySelector('.quiz-box');
+            const finalScoreBox = document.getElementById('final-score-box');
+            const totalScoreText = document.getElementById('total-score');
+            const scoreMessage = document.getElementById('score-message');
+            
+            // Hide the quiz box
+            quizBox.classList.add('hidden');
+            
+            // Set the final score text
+            totalScoreText.innerText = `You scored ${currentScore} out of ${cosmicQuestions.length}`;
+            scoreMessage.innerText = currentScore === cosmicQuestions.length ? 
+                "Perfect Score! You're a Cosmic Genius!" : 
+                "Keep Exploring the Cosmos!";
+            
+            // Show the final score box
+            finalScoreBox.classList.remove('hidden');
+            finalScoreBox.style.opacity = 1;  // Ensure it's visible
+            finalScoreBox.style.transform = 'scale(1)'; // Ensure proper scaling
+        }
+
+        // Stardust effect
+        const stars = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDuration = Math.random() * 1 + 0.5 + 's'; // Random speed
+            stars.appendChild(star);
+        }
+    </script>
+</body>
+</html>
