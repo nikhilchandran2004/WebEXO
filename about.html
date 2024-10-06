@@ -67,55 +67,6 @@
         }
       }
 
-      /* Header Styling */
-      header {
-        background: var(--accent-gradient);
-        color: white;
-        text-align: center;
-        padding: 5rem 0;
-        font-size: 2.5rem;
-        font-weight: bold;
-        letter-spacing: 1.5px;
-        border-bottom: 2px solid #8f00ff;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Navigation Bar */
-      nav {
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 1rem 0;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-        transition: transform 0.3s ease;
-      }
-
-      nav.hide {
-        transform: translateY(-100%);
-      }
-
-      nav a {
-        color: #e1e1e1;
-        margin: 0 20px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding: 10px 15px;
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
-
-      nav a:hover {
-        color: var(--accent-color);
-        transform: scale(1.05);
-      }
-
-      nav a {
-          margin: 0 10px;
-          font-size: 1rem;
-        }
       /* Main Content */
       .container {
         max-width: 1000px;
@@ -275,22 +226,28 @@
     <div id="stars"></div>
 
     <div class="container">
-      <section id="our-team" class="team-intro">
-        <h2>Our Team - Moon-Knight 🌚 <a href="index.html" class="button">Home 🚀</a></h2>
-        
+      <section id="our-team" class="team-intro" style="margin-top: 0">
+        <h2>
+          Our Team - Moon-Knight 🌚
+          <a
+            href="index.html"
+            class="button"
+            style="font-size: 0.8em; padding: 5px 10px"
+            >Home 🚀</a
+          >
+        </h2>
+
         <p>
           We are a team of passionate individuals dedicated to exploring
           exoplanets and sharing the wonders of the cosmos through interactive
           visualizations, 3D tools, and educational resources. Our goal is to
           inspire curiosity and foster a deeper understanding of the universe.
         </p>
-        
-        <ul class="team-list">
+
+        <ul class="team-list" style="margin-left: 0; padding-left: 0">
           <li>
-            <strong>Sreeram R</strong> Project Lead/ 3D Model/ Frontend/
-            Backend Developer <a href="https://github.com/SreeramRajeev"
-              >@github</a
-            >
+            <strong>Sreeram R</strong> Project Lead/ 3D Model/ Frontend/ Backend
+            Developer <a href="https://github.com/SreeramRajeev">@github</a>
           </li>
           <li>
             <strong>Adithya Krishna S</strong> 3D Model/ Frontend/ Backend
